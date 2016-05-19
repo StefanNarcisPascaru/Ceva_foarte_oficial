@@ -20,6 +20,15 @@ Route::get('test1', [
 	'uses' => 'SlideShareController@getTest'
 ]);
 
+Route::get('test2', [
+	'as' => 'test2',
+	'uses' => 'SlideShareController@test2'
+]);
+
 Route::get('test', function () {
     return view('slides.index');
 });
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

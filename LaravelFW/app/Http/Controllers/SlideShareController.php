@@ -19,4 +19,8 @@ class SlideShareController extends Controller
 		
 		return view('slides.index')->with("tot",$stack);
 	}
+
+	public function test2(){
+		return view('welcome');
+	}
 }
