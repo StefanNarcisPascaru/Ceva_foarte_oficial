@@ -14,6 +14,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+    <link rel="shortcut icon" href="{{ asset('law.gif') }}" >
 
     <style>
         body {
@@ -39,7 +40,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('http://students.info.uaic.ro/~stefan.pascaru/') }}">
                     About us
                 </a>
             </div>
@@ -48,17 +49,25 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/test1') }}">SlideShare</a></li>
-                </ul>
-                <ul class="nav navbar-nav">
+
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        SlideShare <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <form action="{{action('SlideShareController@inDB')}}" method="post"> Cauta slideuri despre:
+                                    <input type="text" name="tag_slideuri"><br>
+                                    <input type="submit" value="Cauta">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                    
                     <li><a href="{{ url('/Bogdan') }}">Bogdan</a></li>
-                </ul>
-                <ul class="nav navbar-nav">
                     <li><a href="{{ url('/Cristi') }}">Cristi</a></li>
-                </ul>
-                <ul class="nav navbar-nav">
                     <li><a href="{{ url('/Sami') }}">Sami</a></li>
                 </ul>
                 <!-- Right Side Of Navbar -->

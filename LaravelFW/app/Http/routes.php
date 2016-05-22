@@ -15,14 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('test1', [
-	'as' => 'test1',
-	'uses' => 'SlideShareController@getTest'
+Route::get('/sql',[
+	'as' => 'sql',
+	'uses'=> 'SlideShareController@inBD'
 ]);
 
-Route::get('test2', [
-	'as' => 'test2',
-	'uses' => 'SlideShareController@test2'
+/*
+Route::get('/slide', [
+	'as' => 'slide',
+	'uses' => 'SlideShareController@getAPI'
+]);*/
+
+Route::post('/slide', [
+	'as' => 'slide.getTest',
+	'uses' => 'SlideShareController@inDB'
 ]);
 
 Route::get('test', function () {
