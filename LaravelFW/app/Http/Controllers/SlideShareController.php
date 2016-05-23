@@ -20,49 +20,28 @@ class SlideShareController extends Controller
 		return view('slides.index')->with("tot",$stack);
 	}
 
-	public function inDB(){
- 		$mysqlCon=new MysqlConn();
- 		$con=$mysqlCon->getCon();
-
- 		$stmt="select count(*) count from  slide_share where titlu like '%".$_POST["tag_slideuri"]."%'";
- 		//$stmt="select count(*) count from users";
+	public function inBD(){
+		$con=mysqli_connect("localhost","root","","laravel");
+		if ($con->connect_error) 
+		    die("Connection failed: " . $con->connect_error);
+ 		$stmt="select count(*) count from users ";
  		$result = mysqli_query($con, $stmt) or die(mysqli_error($con));
- 		//if (mysqli_num_rows($result) > 0) 
- 		$row = $result->fetch_assoc(); 
- 		//echo $row["count"];
- 		$slides=array();
-        if($row["count"]<5){
-        	$stmt="select resursa from slide_share where titlu like '%".$_POST["tag_slideuri"]."%'";
-        	$result = mysqli_query($con, $stmt) or die(mysqli_error($con));
-        	
-        	while($row=$result->fetch_assoc()){
-        		array_push($slides,$row["resursa"]);
-        	}
 
-		}//if
+ 		if (mysqli_num_rows($result) > 0) 
+ 		   	{$row = $result->fetch_assoc(); 
+        		echo "id: " . $row["count"]. "<br>";}
+		else 
+    		echo "0 results";
+		
 
  		mysqli_close($con);
- 		return view('slides.index')->with("tot",$slides);
+
+ 		return view('welcome');
 	}
+
 
 	public function cautaSlide(){
 
 
-	}
-}
-
-
-class MysqlConn{
-	protected $conn;
-
-	public function __construct()
-        {if (!$this->conn)
-        	$this->conn=mysqli_connect("localhost","root","","laravel");
-        if ($this->conn->connect_error) 
-		    die("Connection failed: " . $con->connect_error);
-        }
-	
-	public function getCon(){
-		return $this->conn;
 	}
 }

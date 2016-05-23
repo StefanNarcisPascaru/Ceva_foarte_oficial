@@ -20,21 +20,27 @@ Route::get('/sql',[
 	'uses'=> 'SlideShareController@inBD'
 ]);
 
-/*
-Route::get('/slide', [
-	'as' => 'slide',
-	'uses' => 'SlideShareController@getAPI'
-]);*/
 
 Route::post('/slide', [
 	'as' => 'slide.getTest',
-	'uses' => 'SlideShareController@inDB'
+	'uses' => 'SlideShareController@getAPI'
 ]);
-
+Route::post('/vimeo', [
+	'as' => 'vimeo.api',
+	'uses' => 'VimeoController@getAPI'
+]);
+// Route::get('vimeo', function () {
+//     return view('vimeo.index');
+// });
+// Route::get('/vimeo', function(){
+// 	return view('vimeo.vimeo');	
+// });
+Route::get('/vimeo', function () {
+    return view('vimeo.index');
+});
 Route::get('test', function () {
     return view('slides.index');
 });
-
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

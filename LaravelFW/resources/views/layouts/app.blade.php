@@ -40,7 +40,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('http://students.info.uaic.ro/~stefan.pascaru/') }}">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     About us
                 </a>
             </div>
@@ -48,7 +48,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="http://students.info.uaic.ro/~stefan.pascaru">Home</a></li>
 
 
                     <li class="dropdown">
@@ -57,7 +57,7 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <form action="{{action('SlideShareController@inDB')}}" method="post"> Cauta slideuri despre:
+                                <form action="{{action('SlideShareController@getAPI')}}" method="post"> Cauta slideuri despre:
                                     <input type="text" name="tag_slideuri"><br>
                                     <input type="submit" value="Cauta">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -66,7 +66,7 @@
                         </ul>
                     </li>
                     
-                    <li><a href="{{ url('/Bogdan') }}">Bogdan</a></li>
+                    <li><a href="{{ url('/vimeo') }}">Bogdan</a></li>
                     <li><a href="{{ url('/Cristi') }}">Cristi</a></li>
                     <li><a href="{{ url('/Sami') }}">Sami</a></li>
                 </ul>

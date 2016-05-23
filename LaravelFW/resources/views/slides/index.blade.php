@@ -10,11 +10,10 @@
 
 <?php $count=1;?>
 @foreach($tot as $slide)
-	<p>SlideShow <?php echo $count; $count+=1;?></p>
 	<?php print $slide ?>
 
 	<br>
-	
+	<p>SlideShow <?php echo $count; $count+=1;?></p>
 
 @endforeach
 
