@@ -49,6 +49,7 @@ class SlideShareController extends Controller
 		return $stack;
 	}
 
+<<<<<<< HEAD
 	public function inDB(){
  		$mysqlCon=new MysqlConn();
  		$con=$mysqlCon->getCon();
@@ -201,19 +202,30 @@ class SlideShareController extends Controller
 
 
 }
-
-
-class MysqlConn{
-	protected $conn;
-
-	public function __construct()
-        {if (!$this->conn)
-        	$this->conn=mysqli_connect("localhost","root","","laravel");
-        if ($this->conn->connect_error) 
+=======
+	public function inBD(){
+		$con=mysqli_connect("localhost","root","","laravel");
+		if ($con->connect_error) 
 		    die("Connection failed: " . $con->connect_error);
-        }
-	
-	public function getCon(){
-		return $this->conn;
+ 		$stmt="select count(*) count from users ";
+ 		$result = mysqli_query($con, $stmt) or die(mysqli_error($con));
+
+ 		if (mysqli_num_rows($result) > 0) 
+ 		   	{$row = $result->fetch_assoc(); 
+        		echo "id: " . $row["count"]. "<br>";}
+		else 
+    		echo "0 results";
+		
+
+ 		mysqli_close($con);
+
+ 		return view('welcome');
+	}
+>>>>>>> 3c2cf0f037330df58a7b0d0659fb1e1bdd3792b3
+
+
+	public function cautaSlide(){
+
+
 	}
 }
