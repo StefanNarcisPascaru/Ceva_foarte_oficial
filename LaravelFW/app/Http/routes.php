@@ -44,3 +44,6 @@ Route::get('test', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+//pt sami
+Route::get('sami', 'GitHubController@faCeva');
