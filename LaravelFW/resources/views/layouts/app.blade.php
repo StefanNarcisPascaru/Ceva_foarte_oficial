@@ -24,11 +24,21 @@
         .fa-btn {
             margin-right: 6px;
         }
+        .jumbotron{
+             background-image:url("{{ asset('banner_search.jpg') }}") ; 
+             background-repeat: no-repeat; 
+             -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+        }
+
     </style>
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
+
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
@@ -66,7 +76,7 @@
                         </ul>
                     </li>
                     
-                    <li><a href="{{ url('/vimeo') }}">Bogdan</a></li>
+                    <li><a href="{{ url('/vimeo') }}">vimeo</a></li>
                     <li><a href="{{ url('/Cristi') }}">Cristi</a></li>
                     <li><a href="{{ url('/Sami') }}">Sami</a></li>
                 </ul>

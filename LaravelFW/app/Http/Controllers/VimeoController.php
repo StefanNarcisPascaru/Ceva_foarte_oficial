@@ -12,22 +12,26 @@ class VimeoController extends Controller
 	public function getAPI(){
     $querry=$_POST['Search'];
     $response_json=[];
-    $response_json=Vimeo::request('/videos',['query'=>$querry], 'GET');
+    if(empty($_POST['Order']))
+    $_POST['Order']='relevant';
+
+    if (empty($_POST['ColorPlayer']))
+      $_POST['ColorPlayer']='00adef'; 
+    $_POST['ColorPlayer']=explode('#', $_POST['ColorPlayer'])[1];
+    $response_json=Vimeo::request('/videos',['query'=>$querry,'sort'=>$_POST['Order']], 'GET');
     //$response= json_decode($response_json['body'],true);
     $k=0;
     try{
    	foreach ($response_json as $key => $value) {
-   		# code...
    		if($key=='body')
    			foreach ($value as $key1 => $value1) {
-   				# code...
    				if($key1=='data')
               foreach ($value1 as $key2 => $value2) {
                  foreach ($value2 as $key3 => $value3) {
 
                      if($key3=='uri'){
                       $id_video=explode('/', $value3);
-                      $video[$k]=  "<iframe src=\"https://player.vimeo.com/video/".$id_video[2]."\" width=\"500\" height=\"281\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><br>";
+                      $video[$k]=  "<iframe src=\"https://player.vimeo.com/video/".$id_video[2]."?color=".$_POST['ColorPlayer']."\" width=\"500\" height=\"281\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><br>";
                       $k+=1;
                      }
                   }
@@ -43,7 +47,6 @@ class VimeoController extends Controller
 
         return view('vimeo.index')->with("eroare",$e->getMessage());
 
-       }
-       echo "Ceva";
+  }
    	}
 	}		
