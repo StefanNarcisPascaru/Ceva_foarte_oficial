@@ -57,16 +57,17 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <form action="{{action('SlideShareController@inDB')}}" method="post"> Cauta slideuri despre:
-                                    <input type="text" name="tag_slideuri"><br>
-                                    <input type="submit" value="Cauta">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                </form>
+                                {!! Form::open(array('route' => 'slide.api.simplu')) !!}
+                                    {{Form::label('cauta','Cauta slideuri despre:')}}
+                                    {{Form::text('tag_slideuri',null,array('class'=>'form-control'))}}
+                                    {{Form::submit('Cauta',array('class' => 'btn btn-succes btn-lg btn-block'))}}
+                                {!! Form::close() !!}
                             </li>
+                            <li><a href="{{ url('/slideAv') }}">Cautare avansata</a></li>
                         </ul>
                     </li>
                     
-                    <li><a href="{{ url('/Bogdan') }}">Bogdan</a></li>
+                    <li><a href="{{ url('/vimeo') }}">Bogdan</a></li>
                     <li><a href="{{ url('/Cristi') }}">Cristi</a></li>
                     <li><a href="{{ url('/Sami') }}">Sami</a></li>
                 </ul>

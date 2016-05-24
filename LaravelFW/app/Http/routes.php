@@ -14,27 +14,37 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/sql',[
-	'as' => 'sql',
-	'uses'=> 'SlideShareController@inBD'
+Route::get('/slide', function () {
+    return view('welcome');
+});
+Route::post('/slideSi', [
+	'as' => 'slide.api.simplu',
+	'uses' => 'SlideShareController@cautaSimpluSlide'
+]);
+Route::get('/slideAv',function () {
+    return view('slides.avansat');
+});
+Route::post('/slideAv', [
+	'as' => 'slide.api.av',
+	'uses' => 'SlideShareController@cautaAvansatSlide'
 ]);
 
-/*
-Route::get('/slide', [
-	'as' => 'slide',
-	'uses' => 'SlideShareController@getAPI'
-]);*/
-
-Route::post('/slide', [
-	'as' => 'slide.getTest',
-	'uses' => 'SlideShareController@inDB'
+Route::post('/vimeo', [
+	'as' => 'vimeo.api',
+	'uses' => 'VimeoController@getAPI'
 ]);
-
+// Route::get('vimeo', function () {
+//     return view('vimeo.index');
+// });
+// Route::get('/vimeo', function(){
+// 	return view('vimeo.vimeo');	
+// });
+Route::get('/vimeo', function () {
+    return view('vimeo.index');
+});
 Route::get('test', function () {
     return view('slides.index');
 });
-
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

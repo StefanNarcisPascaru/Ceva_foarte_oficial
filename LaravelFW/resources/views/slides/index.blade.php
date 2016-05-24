@@ -9,13 +9,15 @@
 <!--<img src="images.jpg" alt="Mountain View" style="width:304px;height:228px;">-->
 
 <?php $count=1;?>
+@if($tot==null)
+	<?php echo "Not found."?>
+@else
 @foreach($tot as $slide)
-	<p>SlideShow <?php echo $count; $count+=1;?></p>
 	<?php print $slide ?>
 
 	<br>
-	
+	<p>SlideShow <?php echo $count; $count+=1;?></p>
 
 @endforeach
-
+@endif
 @endsection
