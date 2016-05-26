@@ -24,6 +24,19 @@
         .fa-btn {
             margin-right: 6px;
         }
+        .navbar-static-top{
+            background-color: #B3E7D4;
+            border-color: #E7B3BC;
+        }
+        .btn{
+            background-color: #B3E7D4;
+        }
+        .col-md-10{
+            background-color: #98AB8F;
+        }
+        .panel-heading{
+            background-color: #847F89;
+        }
     </style>
 </head>
 <body id="app-layout">
@@ -99,5 +112,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+         <!-- Begin page content -->
+      <div class="container">
+
+        <div class="page-header">
+        </div>
+        <p> <a href="{{ url('/documentation') }}"> API Documentation</a></p>
+      </div>
+    </div><!-- Wrap Div end -->
+
 </body>
 </html>

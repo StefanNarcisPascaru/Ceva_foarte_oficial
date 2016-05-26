@@ -10,14 +10,14 @@
 
 <?php $count=1;?>
 @if($tot==null)
-	<?php echo "Not found."?>
+	<h3><?php echo "Please, change search settings!"?></h3>
+	<img src="no-result.png" alt="no-result">
 @else
 @foreach($tot as $slide)
-	<?php print $slide ?>
-
-	<br>
+	{!! $slide !!}
+	
 	<p>SlideShow <?php echo $count; $count+=1;?></p>
-
+<br>
 @endforeach
 @endif
 @endsection

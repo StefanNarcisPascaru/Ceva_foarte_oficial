@@ -33,18 +33,21 @@ Route::post('/vimeo', [
 	'as' => 'vimeo.api',
 	'uses' => 'VimeoController@getAPI'
 ]);
-// Route::get('vimeo', function () {
-//     return view('vimeo.index');
-// });
-// Route::get('/vimeo', function(){
-// 	return view('vimeo.vimeo');	
-// });
 Route::get('/vimeo', function () {
     return view('vimeo.index');
 });
-Route::get('test', function () {
-    return view('slides.index');
-});
+
+Route::get('/Cristi', function () {
+    return view('welcome');
+});    
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('/slideapi/getAll','SlideApiController@index');
+
+Route::resource('/slideapi/getApi','SlideApiController@get');
+
+Route::get('/documentation', function () {
+    return view('documentation');
+});
