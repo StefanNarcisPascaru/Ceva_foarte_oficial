@@ -13,9 +13,9 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-    <link rel="shortcut icon" href="{{ asset('law.gif') }}" >
-    <link rel="stylesheet" href="{{ URL::asset('css/design.css') }}" />
+    <?php /* <link href="<?php echo e(elixir('css/app.css')); ?>" rel="stylesheet"> */ ?>
+    <link rel="shortcut icon" href="<?php echo e(asset('law.gif')); ?>" >
+    <link rel="stylesheet" href="<?php echo e(URL::asset('css/design.css')); ?>" />
     
     <style>
         body {
@@ -42,7 +42,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('http://students.info.uaic.ro/~stefan.pascaru/') }}">
+                <a class="navbar-brand" href="<?php echo e(url('http://students.info.uaic.ro/~stefan.pascaru/')); ?>">
                     About us
                 </a>
             </div>
@@ -50,7 +50,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="<?php echo e(url('/home')); ?>">Home</a></li>
 
 
                     <li class="dropdown">
@@ -59,55 +59,60 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                {!! Form::open(array('route' => 'slide.api.simplu')) !!}
-                                    {{Form::label('cauta','Cauta slideuri despre:')}}
-                                    {{Form::text('tag_slideuri',null,array('class'=>'form-control'))}}
-                                    {{Form::submit('Cauta',array('class' => 'btn btn-succes btn-lg btn-block'))}}
-                                {!! Form::close() !!}
+                                <?php echo Form::open(array('route' => 'slide.api.simplu')); ?>
+
+                                    <?php echo e(Form::label('cauta','Cauta slideuri despre:')); ?>
+
+                                    <?php echo e(Form::text('tag_slideuri',null,array('class'=>'form-control'))); ?>
+
+                                    <?php echo e(Form::submit('Cauta',array('class' => 'btn btn-succes btn-lg btn-block'))); ?>
+
+                                <?php echo Form::close(); ?>
+
                             </li>
-                            <li><a href="{{ url('/slideAv') }}">Cautare avansata</a></li>
+                            <li><a href="<?php echo e(url('/slideAv')); ?>">Cautare avansata</a></li>
                         </ul>
                     </li>
                     
-                    <li><a href="{{ url('/vimeo') }}">Bogdan</a></li>
-                    <li><a href="{{ url('/Cristi') }}">Cristi</a></li>
-                    <li><a href="{{ url('/Sami') }}">Sami</a></li>
+                    <li><a href="<?php echo e(url('/vimeo')); ?>">Bogdan</a></li>
+                    <li><a href="<?php echo e(url('/Cristi')); ?>">Cristi</a></li>
+                    <li><a href="<?php echo e(url('/Sami')); ?>">Sami</a></li>
                 </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
-                    @else
+                    <?php if(Auth::guest()): ?>
+                        <li><a href="<?php echo e(url('/login')); ?>">Login</a></li>
+                        <li><a href="<?php echo e(url('/register')); ?>">Register</a></li>
+                    <?php else: ?>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="<?php echo e(url('/logout')); ?>"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
-                    @endif
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
     </nav>
 
-    @yield('content')
+    <?php echo $__env->yieldContent('content'); ?>
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+    <?php /* <script src="<?php echo e(elixir('js/app.js')); ?>"></script> */ ?>
 
          <!-- Begin page content -->
       <div class="container">
 
         <div class="page-header">
         </div>
-        <p> <a href="{{ url('/documentation') }}"> API Documentation</a></p>
+        <p> <a href="<?php echo e(url('/documentation')); ?>"> API Documentation</a></p>
       </div>
     </div><!-- Wrap Div end -->
 
