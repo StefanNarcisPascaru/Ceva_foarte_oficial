@@ -8,7 +8,7 @@
                 <div class="panel-heading">Welcome</div>
 
                 <div class="panel-body">
-                    Your Application's Landing Page.
+                <iframe width="756" height="425.25" src="https://www.youtube.com/embed/ajDrY2S5uhU" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

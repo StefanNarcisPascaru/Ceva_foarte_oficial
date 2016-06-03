@@ -14,7 +14,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
+    <link rel="shortcut icon" href="{{ asset('law.gif') }}" >
+    <link rel="stylesheet" href="{{ URL::asset('css/design.css') }}" />
+    
     <style>
         body {
             font-family: 'Lato';
@@ -23,6 +25,7 @@
         .fa-btn {
             margin-right: 6px;
         }
+        
     </style>
 </head>
 <body id="app-layout">
@@ -39,8 +42,8 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                <a class="navbar-brand" href="{{ url('http://students.info.uaic.ro/~stefan.pascaru/') }}">
+                    About us
                 </a>
             </div>
 
@@ -48,12 +51,27 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/test1') }}">slide</a></li>
-                </ul>
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/create') }}">gitHub</a></li>
+
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        SlideShare <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                {!! Form::open(array('route' => 'slide.api.simplu')) !!}
+                                    {{Form::label('cauta','Cauta slideuri despre:')}}
+                                    {{Form::text('tag_slideuri',null,array('class'=>'form-control'))}}
+                                    {{Form::submit('Cauta',array('class' => 'btn btn-succes btn-lg btn-block'))}}
+                                {!! Form::close() !!}
+                            </li>
+                            <li><a href="{{ url('/slideAv') }}">Cautare avansata</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="{{ url('/vimeo') }}">Bogdan</a></li>
+                    <li><a href="{{ url('/Cristi') }}">Cristi</a></li>
+                    <li><a href="{{ url('/Sami') }}">Sami</a></li>
                 </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -83,5 +101,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+         <!-- Begin page content -->
+      <div class="container">
+
+        <div class="page-header">
+        </div>
+        <p> <a href="{{ url('/documentation') }}"> API Documentation</a></p>
+      </div>
+    </div><!-- Wrap Div end -->
+
 </body>
 </html>

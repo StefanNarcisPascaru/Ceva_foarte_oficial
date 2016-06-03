@@ -1502,7 +1502,7 @@ class Validator implements ValidatorContract
                 \]  # a IPv6 address
             )
             (:[0-9]+)?                              # a port (optional)
-            (/?|/\S+|\?\S*|\#\S*)                   # a /, nothing, a / with something, a query or a fragment
+            (/?|/\S+)                               # a /, nothing or a / with something
         $~ixu';
 
         return preg_match($pattern, $value) === 1;

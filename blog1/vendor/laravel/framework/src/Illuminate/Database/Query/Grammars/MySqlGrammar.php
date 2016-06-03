@@ -57,17 +57,6 @@ class MySqlGrammar extends Grammar
     }
 
     /**
-     * Compile the random statement into SQL.
-     *
-     * @param  string  $seed
-     * @return string
-     */
-    public function compileRandom($seed)
-    {
-        return 'RAND('.$seed.')';
-    }
-
-    /**
      * Compile the lock into SQL.
      *
      * @param  \Illuminate\Database\Query\Builder  $query
