@@ -10,44 +10,27 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/slide', function () {
-    return view('welcome');
-});
-Route::post('/slideSi', [
-	'as' => 'slide.api.simplu',
-	'uses' => 'SlideShareController@cautaSimpluSlide'
-]);
-Route::get('/slideAv',function () {
-    return view('slides.avansat');
-});
-Route::post('/slideAv', [
-	'as' => 'slide.api.av',
-	'uses' => 'SlideShareController@cautaAvansatSlide'
-]);
-
-Route::post('/vimeo', [
-	'as' => 'vimeo.api',
-	'uses' => 'VimeoController@getAPI'
-]);
-Route::get('/vimeo', function () {
-    return view('vimeo.index');
-});
-
-Route::get('/Cristi', function () {
-    return view('welcome');
-});    
 Route::auth();
-
 Route::get('/home', 'HomeController@index');
 
-Route::resource('/slideapi/getAll','SlideApiController@index');
+//narcis
+Route::get('test1', 'SlideShareController@getTest');
 
-Route::resource('/slideapi/getApi','SlideApiController@get');
+//sami
+//Route::get('sami', 'GitHubController@faCeva');
+Route::get('GitHubApi', [
+    'as' => 'GitHubApi', 
+    'uses' => 'GitHubController@getGitHubApi'
+]);
 
-Route::get('/documentation', function () {
-    return view('documentation');
-});
+Route::get('create', 'gitHistoryController@create');
+
+// Route::get('/gitHub/create', [
+//     'as' => 'create', 
+//     'uses' => 'gitHistoryController@create'
+// ]);
+
+Route::resource('history','gitHistoryController');
