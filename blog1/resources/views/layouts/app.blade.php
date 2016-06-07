@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
     <link rel="shortcut icon" href="{{ asset('law.gif') }}" >
+<<<<<<< HEAD
 
     <style>
 #video{
@@ -62,6 +63,24 @@
     <nav class="navbar navbar-default navbar-static-top navbar-custom  ">
         <div class="container">
 
+=======
+    <link rel="stylesheet" href="{{ URL::asset('css/design.css') }}" />
+    
+    <style>
+        body {
+            font-family: 'Lato';
+        }
+
+        .fa-btn {
+            margin-right: 6px;
+        }
+        
+    </style>
+</head>
+<body id="app-layout">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+>>>>>>> 944bbd5400bacdb48068de14cd4b21bbb6408253
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
@@ -73,15 +92,24 @@
                 </button>
 
                 <!-- Branding Image -->
+<<<<<<< HEAD
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <strong ><font color='white'>About us</font></strong>
+=======
+                <a class="navbar-brand" href="{{ url('http://students.info.uaic.ro/~stefan.pascaru/') }}">
+                    About us
+>>>>>>> 944bbd5400bacdb48068de14cd4b21bbb6408253
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
+<<<<<<< HEAD
                     <li><a href="http://students.info.uaic.ro/~stefan.pascaru">Home</a></li>
+=======
+                    <li><a href="{{ url('/home') }}">Home</a></li>
+>>>>>>> 944bbd5400bacdb48068de14cd4b21bbb6408253
 
 
                     <li class="dropdown">
@@ -90,6 +118,7 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
+<<<<<<< HEAD
                                 <form action="{{action('SlideShareController@getAPI')}}" method="post"> Cauta slideuri despre:
                                     <input type="text" name="tag_slideuri"><br>
                                     <input type="submit" value="Cauta">
@@ -104,6 +133,21 @@
                     <li><a href="{{ url('/Cristi') }}">Cristi</a></li>
                     <li><a href="{{ url('/Sami') }}">Sami</a></li>
                     <li><a href="{{ url('/mash') }}">Mash-up</a></li>
+=======
+                                {!! Form::open(array('route' => 'slide.api.simplu')) !!}
+                                    {{Form::label('cauta','Cauta slideuri despre:')}}
+                                    {{Form::text('tag_slideuri',null,array('class'=>'form-control'))}}
+                                    {{Form::submit('Cauta',array('class' => 'btn btn-succes btn-lg btn-block'))}}
+                                {!! Form::close() !!}
+                            </li>
+                            <li><a href="{{ url('/slideAv') }}">Cautare avansata</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="{{ url('/vimeo') }}">Bogdan</a></li>
+                    <li><a href="{{ url('/Cristi') }}">Cristi</a></li>
+                    <li><a href="{{ url('/Sami') }}">Sami</a></li>
+>>>>>>> 944bbd5400bacdb48068de14cd4b21bbb6408253
                 </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -133,6 +177,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+<<<<<<< HEAD
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
@@ -143,3 +188,17 @@
     </script>
 </body>
 </html>
+=======
+
+         <!-- Begin page content -->
+      <div class="container">
+
+        <div class="page-header">
+        </div>
+        <p> <a href="{{ url('/documentation') }}"> API Documentation</a></p>
+      </div>
+    </div><!-- Wrap Div end -->
+
+</body>
+</html>
+>>>>>>> 944bbd5400bacdb48068de14cd4b21bbb6408253

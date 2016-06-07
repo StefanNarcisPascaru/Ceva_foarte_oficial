@@ -14,17 +14,30 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/sql',[
-	'as' => 'sql',
-	'uses'=> 'SlideShareController@inBD'
+Route::get('/slide', function () {
+    return view('welcome');
+});
+Route::post('/slideSi', [
+	'as' => 'slide.api.simplu',
+	'uses' => 'SlideShareController@cautaSimpluSlide'
 ]);
+<<<<<<< HEAD
+Route::get('/slideAv',function () {
+    return view('slides.avansat');
+});
+Route::post('/slideAv', [
+	'as' => 'slide.api.av',
+	'uses' => 'SlideShareController@cautaAvansatSlide'
+]);
+
+=======
 
 
 Route::post('/slide', [
 	'as' => 'slide.getTest',
 	'uses' => 'SlideShareController@getAPI'
 ]);
+>>>>>>> 3c2cf0f037330df58a7b0d0659fb1e1bdd3792b3
 Route::post('/vimeo', [
 	'as' => 'vimeo.api',
 	'uses' => 'VimeoController@getAPI'
